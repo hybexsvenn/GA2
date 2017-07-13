@@ -1,0 +1,31 @@
+﻿@using Grupparbete2.Models;
+@{
+    var customer = (Customer)ViewData["Customer"];
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update</title>
+</head>
+<body>
+    <h1>Update Contact</h1>
+    <form method="post" action="/customers/update/@customer.Id">
+        <label>Company Name</label>
+        <br />
+        <input type="text" name="CompanyName" value="@customer.CompanyName"/>
+        <br />
+        <label>Adress</label>
+        <br />
+        <input type="text" name="Adress" value="@customer.Adress"/>
+        <br />
+        <label>EmployeeCount</label>
+        <br />
+        <input type="text" name="EmployeeCount" value="@customer.EmployeeCount"/>
+        <br /><br />
+        <input type="submit" value="Update Contact" />
+
+    </form>
+</body>
+</html>
+

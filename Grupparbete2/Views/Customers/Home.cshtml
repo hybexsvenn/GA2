@@ -1,0 +1,19 @@
+﻿@using Grupparbete2.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>SUCCESS!!!!</h1>
+    <ul>
+            @foreach (var customer in (Customer[])ViewData["Customers"])
+            {
+                <li>@customer.CompanyName <a href="/customers/update/@customer.Id"><input type="button" value="Update" /></a></li>
+            }
+</ul>
+    
+
+</body>
+</html>

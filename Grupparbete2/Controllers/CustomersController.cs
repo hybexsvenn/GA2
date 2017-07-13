@@ -12,7 +12,7 @@ namespace Grupparbete2.Controllers
     public class CustomersController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Home()
         {
             var customers = DataManager.GetAllCustomers();
             ViewData["Customers"] = customers;
@@ -22,9 +22,10 @@ namespace Grupparbete2.Controllers
         [HttpPost]
         public IActionResult Create(Customer customer)
         {
+            
             DataManager.AddCustomer(customer);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Home));
         }
              
         [HttpGet]
@@ -33,6 +34,20 @@ namespace Grupparbete2.Controllers
             return View();
         }
 
-
+        [HttpPost]
+        public IActionResult Update(Customer customer)
+        {
+            //var updateCustomer = 
+            DataManager.Update(customer);
+            //ViewData["Customers"] = updateCustomer;
+            return RedirectToAction(nameof(Home));
+        }
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var customer = DataManager.GetCustomerById(id);
+            ViewData["Customer"] = customer;
+            return View();
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace Grupparbete2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            var customers = DataManager.GetAllCustomers();
+            ViewData["Customers"] = customers;
             return View();
         }
 
@@ -30,5 +32,7 @@ namespace Grupparbete2.Controllers
         {
             return View();
         }
+
+
     }
 }
